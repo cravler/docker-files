@@ -15,4 +15,4 @@ or add to ~/.bashrc
 
 and just run
 
-    $ sencha
+    sencha
