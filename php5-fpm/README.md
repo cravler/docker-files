@@ -1,6 +1,6 @@
 #How to use this image:
 
-    docker run --name some-php5-fpm --link some-nginx:nginx -d cravler/php5-fpm
+    sudo docker run --name some-php5-fpm --link some-nginx:nginx -d cravler/php5-fpm
 
 The following environment variables are also honored for configuring your PHP-FPM instance:
 

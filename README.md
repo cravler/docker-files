@@ -1,5 +1,6 @@
 #Docker-files:
 
+- packagist
 - php5-cli
 - php5-fpm
-- packagist
+- sencha-cmd
