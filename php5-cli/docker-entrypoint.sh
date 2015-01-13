@@ -2,4 +2,4 @@
 
 . /.cravler/php5-cli-config.sh
 
-exec "$@"
+exec $@
