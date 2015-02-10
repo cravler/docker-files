@@ -9,4 +9,6 @@ set -e
 /.cravler/php5-set-config.sh "$CONF_DIR_PHP5_CLI" 'date.timezone' "$PHP5_DATE_TIMEZONE"
 
 # Composer config
-[ ! -z "$COMPOSER_GITHUB_OAUTH" ] && composer config -g github-oauth.github.com "$COMPOSER_GITHUB_OAUTH"
+if [[ ! -z "$COMPOSER_GITHUB_OAUTH" ]]; then
+    composer config -g -q github-oauth.github.com "$COMPOSER_GITHUB_OAUTH"
+fi
