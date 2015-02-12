@@ -5,5 +5,5 @@ _key="$2"
 _value="$3"
 # Do a loop so sed can scale with number of files/options
 for i in $(find $_dir -type f); do
-    sed -ri "s|\S*($_key\s+=).*|\1 $_value|g" $i
+    cat $i | sed -r "s|\S*($_key\s+=).*|\1 $_value|g" | tee $i > /dev/null
 done
