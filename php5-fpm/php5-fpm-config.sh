@@ -19,8 +19,8 @@ set -e
 /.cravler/php5-set-config.sh "$CONF_DIR_PHP5_FPM" 'listen' "$PHP5_FPM_LISTEN"
 
 # Replace php-fpm user and group
-cat "$CONF_DIR_PHP5_FPM/pool.d/www.conf" | sed "s/user = www-data/user = $PHP5_FPM_USER/g" | tee "$CONF_DIR_PHP5_FPM/pool.d/www.conf" > /dev/null
-cat "$CONF_DIR_PHP5_FPM/pool.d/www.conf" | sed "s/group = www-data/group = $PHP5_FPM_GROUP/g" | tee "$CONF_DIR_PHP5_FPM/pool.d/www.conf" > /dev/null
+/.cravler/sed.sh "s/user = www-data/user = $PHP5_FPM_USER/g" "$CONF_DIR_PHP5_FPM/pool.d/www.conf"
+/.cravler/sed.sh "s/group = www-data/group = $PHP5_FPM_GROUP/g" "$CONF_DIR_PHP5_FPM/pool.d/www.conf"
 
 # Add env vars to PHP-FPM configuration file
 /.cravler/php5-fpm-set-env.sh COMPOSER_HOME
