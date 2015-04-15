@@ -1,6 +1,7 @@
 #Docker-files:
 
 - bower
+- cloud9
 - faye-app
 - packagist
 - php5-cli
