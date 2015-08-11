@@ -10,8 +10,9 @@ ENV PATH /opt/Sencha/Cmd/5.0.3.324:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr
 RUN \
 
 # Install dependencies
-    apt-get update && apt-get install -y --no-install-recommends \
+    dpkg --add-architecture i386 && apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
+        libgtk2.0-0:i386 \
         software-properties-common \
         unzip \
         wget \
