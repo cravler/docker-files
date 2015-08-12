@@ -1,6 +1,6 @@
 #How to use this image:
 
-    sudo docker run -i -t --rm -v `pwd`:/var/www cravler/sencha-cmd sencha [<options>]
+    docker run -it --rm -v `pwd`:/var/www cravler/sencha-cmd sencha [<options>]
 
 or add to ~/.bashrc
 
@@ -9,8 +9,9 @@ or add to ~/.bashrc
         if [ -z "$a" ]; then
             a='-i';
         fi
-        sudo docker run -i -t --rm -v `pwd`:/var/www cravler/sencha-cmd sencha $a
+        docker run -it --rm -v `pwd`:/var/www cravler/sencha-cmd sencha $a
     }
+    export -f sencha
 
 and just run
 
