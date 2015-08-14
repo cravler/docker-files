@@ -30,4 +30,4 @@ RUN \\
 VOLUME ["/var/www"]
 WORKDIR /var/www
 
-CMD ["bash"]
+CMD [\"bash\"]
