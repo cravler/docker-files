@@ -6,4 +6,5 @@
 - packagist
 - php5-cli
 - php5-fpm
+- rsync
 - sencha-cmd
