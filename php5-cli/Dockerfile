@@ -43,4 +43,4 @@ ADD docker-entrypoint.sh /.cravler/entrypoint.sh
 
 ENTRYPOINT ["/.cravler/entrypoint.sh"]
 
-CMD php -v
+CMD ["php", "-v"]
