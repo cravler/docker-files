@@ -22,4 +22,4 @@ ADD php5-fpm-config.sh /.cravler/php5-fpm-config.sh
 ADD docker-entrypoint.sh /.cravler/entrypoint.sh
 
 EXPOSE 9000
-CMD php5-fpm -R
+CMD ["php5-fpm", "-R"]
