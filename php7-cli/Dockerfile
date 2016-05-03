@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Sergei Vizel <http://github.com/cravler>
 
 # Let the conatiner know that there is no tty
@@ -12,14 +12,6 @@ ENV PATH ${PATH}:/.composer/vendor/bin
 
 RUN \
 
-# Add PPA for PHP 7.0
-    echo '' >> /etc/apt/sources.list && \
-    echo '# PPA for PHP 7.0' >> /etc/apt/sources.list && \
-    echo 'deb http://ppa.launchpad.net/ondrej/php-7.0/ubuntu trusty main' >> /etc/apt/sources.list && \
-    echo 'deb-src http://ppa.launchpad.net/ondrej/php-7.0/ubuntu trusty main' >> /etc/apt/sources.list && \
-    echo '' >> /etc/apt/sources.list && \
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E5267A6C && \
-
 # All our dependencies, in alphabetical order (to ease maintenance)
     apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates \
@@ -32,6 +24,7 @@ RUN \
         php7.0-intl \
         php7.0-json \
         php7.0-ldap \
+        php7.0-mcrypt \
         php7.0-mysql \
         php7.0-pgsql \
         php7.0-sqlite3 \
