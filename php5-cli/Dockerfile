@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:15.10
 MAINTAINER Sergei Vizel <http://github.com/cravler>
 
 # Let the conatiner know that there is no tty
