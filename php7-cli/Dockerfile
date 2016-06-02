@@ -17,6 +17,7 @@ RUN \
         ca-certificates \
         curl \
         git \
+        netcat \
         php7.0-cli \
         php7.0-curl \
         php7.0-gd \
