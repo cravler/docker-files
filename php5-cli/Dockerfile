@@ -10,10 +10,14 @@ ENV COMPOSER_HOME /.composer
 ENV CONF_DIR_PHP5_CLI /etc/php5/cli
 ENV PATH ${PATH}:/.composer/vendor/bin
 
+RUN \
+
 # All our dependencies, in alphabetical order (to ease maintenance)
-RUN apt-get update && apt-get install -y --no-install-recommends \
+    apt-get update && apt-get install -y --no-install-recommends \
+        ca-certificates \
         curl \
         git \
+        netcat \
         php5-cli \
         php5-curl \
         php5-gd \
@@ -25,7 +29,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         php5-mhash \
         php5-mysql \
         php5-pgsql \
-        php5-sqlite && \
+        php5-sqlite \
+        vim && \
 
 # Remove cache
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
