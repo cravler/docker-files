@@ -7,6 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # Common environment variables
 ENV TZ UTC
 ENV COMPOSER_HOME /.composer
+ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV CONF_DIR_PHP5_CLI /etc/php5/cli
 ENV PATH ${PATH}:/.composer/vendor/bin
 
