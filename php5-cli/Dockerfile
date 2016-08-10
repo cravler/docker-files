@@ -9,7 +9,7 @@ ENV TZ UTC
 ENV COMPOSER_HOME /.composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV CONF_DIR_PHP5_CLI /etc/php5/cli
-ENV PATH ${PATH}:/.composer/vendor/bin
+ENV PATH ${COMPOSER_HOME}/bin:${PATH}:${COMPOSER_HOME}/vendor/bin
 
 RUN \
 
@@ -34,18 +34,16 @@ RUN \
         vim && \
 
 # Remove cache
-    apt-get clean && rm -rf /var/lib/apt/lists/* && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Install composer
-    curl -sS http://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-VOLUME ["/.composer", "/var/www"]
+VOLUME ["$COMPOSER_HOME", "/var/www"]
 WORKDIR /var/www
 
 ADD sed.sh /.cravler/sed.sh
 ADD php5-set-config.sh /.cravler/php5-set-config.sh
 ADD php5-cli-config.sh /.cravler/php5-cli-config.sh
 ADD docker-entrypoint.sh /.cravler/entrypoint.sh
+ADD composer.sh /usr/local/bin/composer
 
 ENTRYPOINT ["/.cravler/entrypoint.sh"]
 
