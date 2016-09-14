@@ -30,6 +30,8 @@ RUN \
         php7.0-mysql \
         php7.0-pgsql \
         php7.0-sqlite3 \
+        php7.0-xml \
+        php7.0-zip \
         vim && \
 
 # Remove cache
