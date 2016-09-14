@@ -27,7 +27,7 @@ RUN \
     /opt/Sencha/Cmd/SenchaCmd-4.0.5.87-linux-x64.run --prefix /opt --mode unattended  && \
     rm /opt/Sencha/Cmd/SenchaCmd-4.0.5.87-linux-x64.run
 
-VOLUME [/var/www]
+VOLUME ["/var/www"]
 WORKDIR /var/www
 
 CMD ["bash"]

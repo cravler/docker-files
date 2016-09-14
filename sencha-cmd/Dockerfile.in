@@ -27,7 +27,7 @@ RUN \\
     /opt/Sencha/Cmd/${SENCHA_CMD_INSTALLER} ${SENCHA_CMD_INSTALLER_OPTIONS} ${SENCHA_CMD_COMPASS_FIX} && \\
     rm /opt/Sencha/Cmd/${SENCHA_CMD_INSTALLER}
 
-VOLUME ["/var/www"]
+VOLUME [\"/var/www\"]
 WORKDIR /var/www
 
 CMD [\"bash\"]

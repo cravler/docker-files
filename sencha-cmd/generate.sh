@@ -21,7 +21,7 @@ else
         SENCHA_CMD_INSTALLER_OPTIONS="--prefix /opt --mode unattended"
         SENCHA_CMD_PACKAGE="http://cdn.sencha.com/cmd/$SENCHA_CMD_VERSION/$SENCHA_CMD_INSTALLER.zip"
     else
-        SENCHA_CMD_VERSION="6.0.0.202"
+        SENCHA_CMD_VERSION="6.2.0.103"
         SENCHA_CMD_INSTALLER="SenchaCmd-$SENCHA_CMD_VERSION-linux-amd64.sh"
         SENCHA_CMD_INSTALLER_OPTIONS="-q -dir /opt/Sencha/Cmd/$SENCHA_CMD_VERSION"
         SENCHA_CMD_PACKAGE="http://cdn.sencha.com/cmd/$SENCHA_CMD_VERSION/no-jre/$SENCHA_CMD_INSTALLER.zip"
