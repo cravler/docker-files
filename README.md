@@ -2,6 +2,7 @@
 
 - bower
 - cloud9
+- compass
 - faye-app
 - packagist
 - php5-cli
