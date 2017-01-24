@@ -41,6 +41,7 @@ VOLUME ["$COMPOSER_HOME", "/var/www"]
 WORKDIR /var/www
 
 ADD sed.sh /.cravler/sed.sh
+ADD args2str.sh /.cravler/args2str.sh
 ADD php7-set-config.sh /.cravler/php7-set-config.sh
 ADD php7-cli-config.sh /.cravler/php7-cli-config.sh
 ADD docker-entrypoint.sh /.cravler/entrypoint.sh
