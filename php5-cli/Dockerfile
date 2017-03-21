@@ -12,8 +12,6 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV CONF_DIR_PHP5_CLI /etc/php5/cli
 ENV PATH ${COMPOSER_HOME}/bin:${PATH}:${COMPOSER_HOME}/vendor/bin
 
-ADD update-ca-certificates.sh /.cravler/update-ca-certificates.sh
-
 RUN \
 
 # All our dependencies, in alphabetical order (to ease maintenance)
@@ -37,10 +35,7 @@ RUN \
         vim && \
 
 # Remove cache
-    apt-get clean && rm -rf /var/lib/apt/lists/* && \
-
-# Update CA
-    /.cravler/update-ca-certificates.sh
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 VOLUME ["$COMPOSER_HOME", "/var/www"]
 WORKDIR /var/www
