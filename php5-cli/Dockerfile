@@ -1,5 +1,6 @@
 FROM ubuntu:15.10
-MAINTAINER Sergei Vizel <http://github.com/cravler>
+
+LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
 
 # Let the conatiner know that there is no tty
 ENV DEBIAN_FRONTEND noninteractive
@@ -10,6 +11,8 @@ ENV COMPOSER_HOME /.composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV CONF_DIR_PHP5_CLI /etc/php5/cli
 ENV PATH ${COMPOSER_HOME}/bin:${PATH}:${COMPOSER_HOME}/vendor/bin
+
+ADD update-ca-certificates.sh /.cravler/update-ca-certificates.sh
 
 RUN \
 
@@ -34,7 +37,10 @@ RUN \
         vim && \
 
 # Remove cache
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+    apt-get clean && rm -rf /var/lib/apt/lists/* && \
+
+# Update CA
+    /.cravler/update-ca-certificates.sh
 
 VOLUME ["$COMPOSER_HOME", "/var/www"]
 WORKDIR /var/www
