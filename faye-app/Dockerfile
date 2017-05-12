@@ -1,5 +1,6 @@
-FROM node:6.6.0
-MAINTAINER Sergei Vizel <http://github.com/cravler>
+FROM node:6
+
+LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
 
 RUN \
     npm install -g faye-app
