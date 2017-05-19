@@ -5,9 +5,6 @@
 - compass
 - faye-app
 - packagist
-- php5-cli
-- php5-fpm
-- php7-cli
-- php7-fpm
+- php
 - rsync
 - sencha-cmd
