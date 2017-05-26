@@ -27,7 +27,6 @@ build_docker_image() {
     if [ "YES" = "$PUSH_IMAGE" ]; then
         docker push $REPOSITORY:$TAG
     fi
-    sleep 1
 }
 
 build_docker_image 7.1-cli --pull
