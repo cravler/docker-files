@@ -14,8 +14,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Configure php-fpm
     mkdir -p /run/php && \
-    ln -s /usr/sbin/php-fpm7.0 /usr/sbin/php7-fpm && \
     ln -s /usr/sbin/php-fpm7.0 /usr/sbin/php-fpm && \
+    ln -s /usr/sbin/php-fpm7.0 /usr/sbin/php7-fpm && \
+    ln -s /usr/sbin/php-fpm7.0 /usr/sbin/php7.0-fpm && \
 
 # Find config files and edit
     find "$CONF_DIR_PHP_FPM" -type f -exec sed -ri ' \

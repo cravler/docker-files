@@ -1,27 +1,24 @@
-FROM cravler/php:5.6-cli
+FROM cravler/php:7.2-cli
 
 LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
 
 # Common environment variables
-ENV CONF_DIR_PHP_FPM /etc/php/5.6/fpm
+ENV CONF_DIR_PHP_FPM /etc/php/7.2/fpm
 
 # All our dependencies, in alphabetical order (to ease maintenance)
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        php5.6-fpm && \
+        php7.2-fpm && \
 
 # Remove cache
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
 
 # Configure php-fpm
     mkdir -p /run/php && \
-    ln -s /usr/sbin/php-fpm5.6 /usr/sbin/php-fpm && \
-    ln -s /usr/sbin/php-fpm5.6 /usr/sbin/php5-fpm && \
-    ln -s /usr/sbin/php-fpm5.6 /usr/sbin/php5.6-fpm && \
+    ln -s /usr/sbin/php-fpm7.2 /usr/sbin/php-fpm && \
+    ln -s /usr/sbin/php-fpm7.2 /usr/sbin/php7-fpm && \
+    ln -s /usr/sbin/php-fpm7.2 /usr/sbin/php7.2-fpm && \
 
 # Find config files and edit
-    echo "include=$CONF_DIR_PHP_FPM/pool.d/*.conf" >> "$CONF_DIR_PHP_FPM/php-fpm.conf" && \
-    echo '' >> "$CONF_DIR_PHP_FPM/php-fpm.conf" && \
-
     find "$CONF_DIR_PHP_FPM" -type f -exec sed -ri ' \
         s|(error_log\s+=).*|\1 /proc/self/fd/2|g; \
         s|\S*(daemonize\s+=).*|\1 no|g; \
@@ -32,4 +29,4 @@ ADD php-fpm-config.sh /.cravler/php-fpm-config.sh
 ADD php-fpm-entrypoint.sh /.cravler/entrypoint.sh
 
 EXPOSE 9000
-CMD ["php5-fpm", "-R"]
+CMD ["php7-fpm", "-R"]
