@@ -29,16 +29,16 @@ RUN \
         git \
         netcat \
         php-apcu \
-        php-bcmath \
         php-imagick \
-        php-mbstring \
         php-memcached \
+        php7.1-bcmath \
         php7.1-cli \
         php7.1-curl \
         php7.1-gd \
         php7.1-intl \
         php7.1-json \
         php7.1-ldap \
+        php7.1-mbstring \
         php7.1-mcrypt \
         php7.1-mysql \
         php7.1-pgsql \
