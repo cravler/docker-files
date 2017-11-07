@@ -13,7 +13,7 @@ ENV CONF_DIR_PHP_CLI /etc/php/5.6/cli
 ENV PATH ${COMPOSER_HOME}/bin:${PATH}:${COMPOSER_HOME}/vendor/bin
 
 RUN \
-
+\
 # Add PPA for PHP 5.6
     echo '' >> /etc/apt/sources.list && \
     echo '# PPA for PHP 5.6' >> /etc/apt/sources.list && \
@@ -21,13 +21,16 @@ RUN \
     echo 'deb-src http://ppa.launchpad.net/ondrej/php/ubuntu xenial main' >> /etc/apt/sources.list && \
     echo '' >> /etc/apt/sources.list && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E5267A6C && \
-
+\
 # All our dependencies, in alphabetical order (to ease maintenance)
     apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates \
         curl \
         git \
         netcat \
+        php-apcu \
+        php-bcmath \
+        php-mbstring \
         php5.6-cli \
         php5.6-curl \
         php5.6-gd \
@@ -36,13 +39,14 @@ RUN \
         php5.6-json \
         php5.6-ldap \
         php5.6-mcrypt \
+        php5.6-memcache \
         php5.6-mysql \
         php5.6-pgsql \
         php5.6-sqlite \
         php5.6-xml \
         php5.6-zip \
         vim && \
-
+\
 # Remove cache
     apt-get clean && rm -rf /var/lib/apt/lists/*
 

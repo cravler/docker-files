@@ -13,7 +13,7 @@ ENV CONF_DIR_PHP_CLI /etc/php/7.1/cli
 ENV PATH ${COMPOSER_HOME}/bin:${PATH}:${COMPOSER_HOME}/vendor/bin
 
 RUN \
-
+\
 # Add PPA for PHP 7.1
     echo '' >> /etc/apt/sources.list && \
     echo '# PPA for PHP 7.1' >> /etc/apt/sources.list && \
@@ -21,17 +21,21 @@ RUN \
     echo 'deb-src http://ppa.launchpad.net/ondrej/php/ubuntu xenial main' >> /etc/apt/sources.list && \
     echo '' >> /etc/apt/sources.list && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E5267A6C && \
-
+\
 # All our dependencies, in alphabetical order (to ease maintenance)
     apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates \
         curl \
         git \
         netcat \
+        php-apcu \
+        php-bcmath \
+        php-imagick \
+        php-mbstring \
+        php-memcached \
         php7.1-cli \
         php7.1-curl \
         php7.1-gd \
-        php-imagick \
         php7.1-intl \
         php7.1-json \
         php7.1-ldap \
@@ -42,7 +46,7 @@ RUN \
         php7.1-xml \
         php7.1-zip \
         vim && \
-
+\
 # Remove cache
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
