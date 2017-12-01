@@ -41,9 +41,9 @@ add_docker_tag() {
     fi
 }
 
-add_docker_tag 7.2-cli 7.2
-add_docker_tag 7.1-cli 7-cli cli 7.1 7 latest
-add_docker_tag 7.1-fpm 7-fpm fpm
+add_docker_tag 7.2-cli 7-cli cli 7.2 7 latest
+add_docker_tag 7.2-fpm 7-fpm fpm
+add_docker_tag 7.1-cli 7.1
 add_docker_tag 7.0-cli 7.0
 add_docker_tag 5.6-cli 5-cli 5.6 5
 add_docker_tag 5.6-fpm 5-fpm

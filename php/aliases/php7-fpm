@@ -1,4 +1,4 @@
-FROM cravler/php:7.1-fpm
+FROM cravler/php:7.2-fpm
 
 LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
 
