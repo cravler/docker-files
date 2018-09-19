@@ -1,8 +1,8 @@
-#How to use this image:
+# How to use this image:
 
 Start `ssh-agent`
 
-    docker run -d --name ssh-agent cravler/ssh-agent
+    docker run -d --restart always --name ssh-agent cravler/ssh-agent
 
 Add your SSH private key to the `ssh-agent`
 
