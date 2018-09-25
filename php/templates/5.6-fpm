@@ -1,0 +1,4 @@
+
+    echo "include=$CONF_DIR_PHP_FPM/pool.d/*.conf" >> "$CONF_DIR_PHP_FPM/php-fpm.conf" && \
+    echo '' >> "$CONF_DIR_PHP_FPM/php-fpm.conf" && \
+\

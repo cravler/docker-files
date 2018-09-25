@@ -40,33 +40,3 @@ ENTRYPOINT ["/.cravler/entrypoint.sh"]
 CMD ["php", "-v"]
 
 ########################################################################################################################
-
-FROM base AS php7.2
-
-ENV CONF_DIR_PHP_CLI /etc/php/7.2/cli
-
-RUN \
-\
-# All our dependencies, in alphabetical order (to ease maintenance)
-    apt-get update && apt-get install -y --no-install-recommends \
-        php-apcu \
-        php-imagick \
-        php-memcached \
-        php7.2-bcmath \
-        php7.2-cli \
-        php7.2-curl \
-        php7.2-gd \
-        php7.2-intl \
-        php7.2-json \
-        php7.2-ldap \
-        php7.2-mbstring \
-        php7.2-mysql \
-        php7.2-pgsql \
-        php7.2-sqlite3 \
-        php7.2-xml \
-        php7.2-zip && \
-\
-# Remove cache
-    apt-get clean && rm -rf /var/lib/apt/lists/*
-
-########################################################################################################################
