@@ -1,5 +1,6 @@
 FROM ruby:alpine
-MAINTAINER Sergei Vizel <http://github.com/cravler>
+
+LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
 
 RUN \
     apk add --no-cache --virtual build-base && \

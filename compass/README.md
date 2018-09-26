@@ -1,4 +1,4 @@
-#How to use this image:
+# How to use this image:
 
     docker run -it --rm -v $HOME:$HOME -w `pwd` cravler/compass [<options>]
 
