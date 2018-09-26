@@ -1,6 +1,7 @@
-#How to use this image:
+# How to use this image:
 
-    sudo docker run -it --rm -p 8181:8181 -v `pwd`:/workspace cravler/cloud9 cloud9 [<options>]
+    docker run -it --rm -p 8181:8181 -v `pwd`:/workspace cravler/cloud9 \
+    cloud9 [<options>]
 
 or add to ~/.bashrc
 
@@ -8,7 +9,11 @@ or add to ~/.bashrc
         mkdir -p ~/.c9
         set -o noclobber
         { > ~/.c9/user.settings ; } &> /dev/null
-        sudo docker run -it --rm -p 8181:8181 -v `pwd`:/workspace -v ~/.c9/user.settings:/root/.c9/user.settings cravler/cloud9 cloud9 $@
+        docker run -it --rm -p 8181:8181 \
+        -v `pwd`:/workspace \
+        -v ~/.c9/user.settings:/root/.c9/user.settings \
+        cravler/cloud9 \
+        cloud9 $@
     }
 
 and just run
