@@ -1,4 +1,4 @@
-#How to use this image:
+# How to use this image:
 
 ## Daemon
 
@@ -6,8 +6,12 @@
 
 ## Sync
 
-    docker run -it --rm -v `pwd`:/volume -e 'RSYNC_PASSWORD=[password]' cravler/rsync rsync /volume/ rsync://[username]@172.17.0.1:873/data
+    docker run -it --rm \
+    -v `pwd`:/volume -e 'RSYNC_PASSWORD=[password]' \
+    cravler/rsync rsync /volume/ rsync://[username]@172.17.0.1:873/data
 
 or
 
-    docker run -it --rm -v `pwd`:/volume -e 'RSYNC_PASSWORD=[password]' cravler/rsync rsync rsync://[username]@172.17.0.1:873/data /volume
+    docker run -it --rm \
+    -v `pwd`:/volume -e 'RSYNC_PASSWORD=[password]' \
+    cravler/rsync rsync rsync://[username]@172.17.0.1:873/data /volume
