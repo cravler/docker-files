@@ -1,4 +1,4 @@
-FROM node:6
+FROM node:8
 
 LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
 
