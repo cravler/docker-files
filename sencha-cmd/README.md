@@ -1,6 +1,7 @@
-#How to use this image:
+# How to use this image:
 
-    docker run -it --rm -v $HOME:$HOME -w `pwd` cravler/sencha-cmd sencha [<options>]
+    docker run -it --rm -v $HOME:$HOME -w `pwd` cravler/sencha-cmd \
+    sencha [<options>]
 
 or add to ~/.bashrc
 
@@ -9,7 +10,8 @@ or add to ~/.bashrc
         if [ -z "$a" ]; then
             a='-i';
         fi
-        docker run -it --rm -v $HOME:$HOME -w `pwd` cravler/sencha-cmd sencha $a
+        docker run -it --rm -v $HOME:$HOME -w `pwd` cravler/sencha-cmd \
+        sencha $a
     }
     export -f sencha
 
