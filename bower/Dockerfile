@@ -1,5 +1,6 @@
 FROM node:0.10
-MAINTAINER Sergei Vizel <http://github.com/cravler>
+
+LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
 
 # Common environment variables
 ENV BOWER_ALLOW_ROOT true
