@@ -14,7 +14,7 @@ RUN \
 # Build Faye
     git clone https://github.com/cravler/faye /faye && \
     cd /faye && \
-    git checkout patch-1 && \
+    git checkout dev && \
     npm i && \
     make && \
 \
