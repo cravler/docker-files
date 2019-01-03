@@ -1,11 +1,11 @@
-FROM node:8
+FROM node:10
 
 LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
 
 RUN \
-    npm install -g faye-app
+    npm install -g faye-app && \
+    mkdir -p /var/www
 
-VOLUME ["/var/www"]
 WORKDIR /var/www
 
 CMD faye-app
