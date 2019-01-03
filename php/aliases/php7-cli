@@ -1,4 +1,4 @@
-FROM cravler/php:7.2-cli
+FROM cravler/php:7.3-cli
 
 LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
 

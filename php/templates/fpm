@@ -1,4 +1,4 @@
-FROM cravler/php:${PHP_VERSION}-cli
+FROM ${REPOSITORY}:${PHP_VERSION}-cli
 
 LABEL maintainer \"Sergei Vizel <http://github.com/cravler>\"
 

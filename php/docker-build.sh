@@ -29,11 +29,13 @@ build_docker_image() {
     fi
 }
 
-build_docker_image 7.2-cli --pull
-build_docker_image 7.2-fpm
-build_docker_image 7.1-cli --pull
-build_docker_image 7.1-fpm
-build_docker_image 7.0-cli --pull
-build_docker_image 7.0-fpm
 build_docker_image 5.6-cli --pull
 build_docker_image 5.6-fpm
+build_docker_image 7.0-cli --pull
+build_docker_image 7.0-fpm
+build_docker_image 7.1-cli --pull
+build_docker_image 7.1-fpm
+build_docker_image 7.2-cli --pull
+build_docker_image 7.2-fpm
+build_docker_image 7.3-cli --pull
+build_docker_image 7.3-fpm
