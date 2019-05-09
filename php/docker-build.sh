@@ -3,6 +3,7 @@
 MY_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 REPOSITORY=cravler/php
 PUSH_IMAGE=NO
+ADD_TAGS=NO
 
 for i in "$@"; do
 case $i in
@@ -14,6 +15,10 @@ case $i in
         PUSH_IMAGE=YES
         shift
     ;;
+    --add-tags)
+        ADD_TAGS=YES
+        shift
+    ;;
     *)
         # unknown option
     ;;
@@ -23,19 +28,28 @@ done
 build_docker_image() {
     TAG=$1
     PULL=$2
+    shift
     docker build $PULL --no-cache --rm -f $MY_PATH/Dockerfile.$TAG -t $REPOSITORY:$TAG .
     if [ "YES" = "$PUSH_IMAGE" ]; then
         docker push $REPOSITORY:$TAG
     fi
+    if [ "YES" = "$ADD_TAGS" ]; then
+        for ADD_TAG in $@; do
+            docker tag $REPOSITORY:$TAG $REPOSITORY:$ADD_TAG
+            if [ "YES" = "$PUSH_IMAGE" ]; then
+                docker push $REPOSITORY:$ADD_TAG
+            fi
+        done
+    fi
 }
 
-build_docker_image 5.6-cli --pull
-build_docker_image 5.6-fpm
-build_docker_image 7.0-cli --pull
-build_docker_image 7.0-fpm
-build_docker_image 7.1-cli --pull
-build_docker_image 7.1-fpm
-build_docker_image 7.2-cli --pull
-build_docker_image 7.2-fpm
-build_docker_image 7.3-cli --pull
-build_docker_image 7.3-fpm
+build_docker_image 5.6-cli    --pull    5-cli 5.6 5
+build_docker_image 5.6-fpm    ""        5-fpm
+build_docker_image 7.0-cli    --pull    7.0
+build_docker_image 7.0-fpm    ""
+build_docker_image 7.1-cli    --pull    7.1
+build_docker_image 7.1-fpm    ""
+build_docker_image 7.2-cli    --pull    7.2
+build_docker_image 7.2-fpm    ""
+build_docker_image 7.3-cli    --pull    7-cli cli 7.3 7 latest
+build_docker_image 7.3-fpm    ""        7-fpm fpm
