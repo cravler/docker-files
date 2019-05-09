@@ -9,10 +9,10 @@
 
 # End of life
 
-- 7.0-cli, 7.0 [(Dockerfile.7.0-cli)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.7.0-cli)
-- 7.0-fpm [(Dockerfile.7.0-fpm)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.7.0-fpm)
-- 5.6-cli, 5-cli, 5.6, 5 [(Dockerfile.5.6-cli)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.5.6-cli)
-- 5.6-fpm, 5-fpm [(Dockerfile.5.6-fpm)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.5.6-fpm)
+- 7.0-cli, 7.0 [(Dockerfile.7.0-cli)](https://github.com/cravler/docker-files/tree/master/php/archive/Dockerfile.7.0-cli)
+- 7.0-fpm [(Dockerfile.7.0-fpm)](https://github.com/cravler/docker-files/tree/master/php/archive/Dockerfile.7.0-fpm)
+- 5.6-cli, 5-cli, 5.6, 5 [(Dockerfile.5.6-cli)](https://github.com/cravler/docker-files/tree/master/php/archive/Dockerfile.5.6-cli)
+- 5.6-fpm, 5-fpm [(Dockerfile.5.6-fpm)](https://github.com/cravler/docker-files/tree/master/php/archive/Dockerfile.5.6-fpm)
 
 # How to use CLI image
 

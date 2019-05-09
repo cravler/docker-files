@@ -43,10 +43,11 @@ build_docker_image() {
     fi
 }
 
-build_docker_image 5.6-cli    --pull    5-cli 5.6 5
-build_docker_image 5.6-fpm    ""        5-fpm
-build_docker_image 7.0-cli    --pull    7.0
-build_docker_image 7.0-fpm    ""
+#build_docker_image 5.6-cli    --pull    5-cli 5.6 5
+#build_docker_image 5.6-fpm    ""        5-fpm
+#build_docker_image 7.0-cli    --pull    7.0
+#build_docker_image 7.0-fpm    ""
+
 build_docker_image 7.1-cli    --pull    7.1
 build_docker_image 7.1-fpm    ""
 build_docker_image 7.2-cli    --pull    7.2
