@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+echo "Building: ${DOCKER_REPO}"
+
+./generate.sh --repository=${DOCKER_REPO}
+./docker-build.sh --repository=${DOCKER_REPO}
+./docker-tag.sh --repository=${DOCKER_REPO}
