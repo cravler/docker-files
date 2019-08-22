@@ -1,0 +1,89 @@
+FROM ubuntu:18.04 AS base
+
+LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
+
+# Let the conatiner know that there is no tty
+ENV DEBIAN_FRONTEND noninteractive
+
+# Common environment variables
+ENV TZ UTC
+ENV COMPOSER_HOME /.composer
+ENV COMPOSER_ALLOW_SUPERUSER 1
+ENV PATH ${COMPOSER_HOME}/bin:${PATH}:${COMPOSER_HOME}/vendor/bin
+
+RUN \
+\
+# All our dependencies, in alphabetical order (to ease maintenance)
+    apt-get update && apt-get install -y --no-install-recommends \
+        ca-certificates \
+        curl \
+        git \
+        gnupg \
+        netcat \
+        unzip \
+        vim && \
+\
+# Remove cache
+    apt-get clean && rm -rf /var/lib/apt/lists/* && \
+\
+# Create default working directory
+    mkdir -p /var/www
+
+WORKDIR /var/www
+
+ADD sed.sh /.cravler/sed.sh
+ADD args2str.sh /.cravler/args2str.sh
+ADD php-set-config.sh /.cravler/php-set-config.sh
+ADD php-cli-config.sh /.cravler/php-cli-config.sh
+ADD php-cli-entrypoint.sh /.cravler/entrypoint.sh
+ADD composer.sh /usr/local/bin/composer
+
+ENTRYPOINT ["/.cravler/entrypoint.sh"]
+
+CMD ["php", "-a"]
+
+########################################################################################################################
+
+FROM base AS ppa
+
+RUN \
+\
+# Add PPA for PHP
+    echo '' >> /etc/apt/sources.list && \
+    echo '# PPA for PHP' >> /etc/apt/sources.list && \
+    echo 'deb http://ppa.launchpad.net/ondrej/php/ubuntu bionic main' >> /etc/apt/sources.list && \
+    echo 'deb-src http://ppa.launchpad.net/ondrej/php/ubuntu bionic main' >> /etc/apt/sources.list && \
+    echo '' >> /etc/apt/sources.list && \
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E5267A6C
+
+########################################################################################################################
+
+FROM ppa AS php7.4
+
+ENV CONF_DIR_PHP_CLI /etc/php/7.4/cli
+
+RUN \
+\
+# All our dependencies, in alphabetical order (to ease maintenance)
+    apt-get update && apt-get install -y --no-install-recommends \
+        php-apcu \
+        php-imagick \
+        php-memcached \
+        php7.4-bcmath \
+        php7.4-cli \
+        php7.4-curl \
+        php7.4-gd \
+        php7.4-intl \
+        php7.4-json \
+        php7.4-ldap \
+        php7.4-mbstring \
+        php7.4-mysql \
+        php7.4-pgsql \
+        php7.4-sqlite3 \
+        php7.4-xml \
+        php7.4-zip && \
+\
+# Remove cache
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+########################################################################################################################
