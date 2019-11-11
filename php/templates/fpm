@@ -26,6 +26,7 @@ RUN \\
         s|\S*(daemonize\s+=).*|\1 no|g; \\
     ' '{}' ';'
 
+ADD php-fpm-env-import.sh /.cravler/php-fpm-env-import.sh
 ADD php-fpm-set-env.sh /.cravler/php-fpm-set-env.sh
 ADD php-fpm-config.sh /.cravler/php-fpm-config.sh
 ADD php-fpm-entrypoint.sh /.cravler/entrypoint.sh
