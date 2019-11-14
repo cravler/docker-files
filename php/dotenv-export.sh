@@ -19,6 +19,10 @@ case $i in
 esac
 done
 
+render_template() {
+    eval "echo \"$(cat $1)\""
+}
+
 dotenv_export() {
     ENV_FILE=$1
     ENV=$(/.cravler/dotenv.sh $ENV_FILE)
@@ -35,8 +39,9 @@ dotenv_export() {
 
 NEWLINE=0
 for FILE in "${FILES[@]}"; do
-    dotenv_export $FILE
-    if [ -f $FILE ]; then
+    file=$(render_template <(echo "$FILE"))
+    dotenv_export $file
+    if [ -f $file ]; then
         NEWLINE=1
     fi
 done
