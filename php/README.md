@@ -1,9 +1,9 @@
 # Supported tags and respective `Dockerfile` links
 
-- 7.4-cli, 7.4 [(Dockerfile.7.4-cli)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.7.4-cli)
-- 7.4-fpm [(Dockerfile.7.4-fpm)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.7.4-fpm)
-- 7.3-cli, 7-cli, cli, 7.3, 7, latest [(Dockerfile.7.3-cli)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.7.3-cli)
-- 7.3-fpm, 7-fpm, fpm [(Dockerfile.7.3-fpm)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.7.3-fpm)
+- 7.4-cli, 7-cli, cli, 7.4, 7, latest [(Dockerfile.7.4-cli)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.7.4-cli)
+- 7.4-fpm, 7-fpm, fpm [(Dockerfile.7.4-fpm)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.7.4-fpm)
+- 7.3-cli, 7.3 [(Dockerfile.7.3-cli)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.7.3-cli)
+- 7.3-fpm [(Dockerfile.7.3-fpm)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.7.3-fpm)
 - 7.2-cli, 7.2 [(Dockerfile.7.2-cli)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.7.2-cli)
 - 7.2-fpm [(Dockerfile.7.2-fpm)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.7.2-fpm)
 - 7.1-cli, 7.1 [(Dockerfile.7.1-cli)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.7.1-cli)

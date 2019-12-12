@@ -4,7 +4,9 @@
 . /.cravler/php-fpm-config.sh
 
 if [[ "$@" == "$1" ]]; then
-    . <(echo "$@")
+    CMD=$(echo "$@")
 else
-    . <(echo $(/.cravler/args2str.sh "$@"))
+    CMD=$(echo $(/.cravler/args2str.sh "$@"))
 fi
+
+exec $CMD

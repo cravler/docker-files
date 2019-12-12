@@ -33,6 +33,8 @@ WORKDIR /var/www
 
 ADD sed.sh /.cravler/sed.sh
 ADD args2str.sh /.cravler/args2str.sh
+ADD dotenv.sh /.cravler/dotenv.sh
+ADD dotenv-export.sh /.cravler/dotenv-export.sh
 ADD php-set-config.sh /.cravler/php-set-config.sh
 ADD php-cli-config.sh /.cravler/php-cli-config.sh
 ADD php-cli-entrypoint.sh /.cravler/entrypoint.sh
