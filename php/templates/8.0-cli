@@ -1,0 +1,29 @@
+
+FROM ppa AS php8.0
+
+ENV CONF_DIR_PHP_CLI /etc/php/8.0/cli
+
+RUN \
+\
+# All our dependencies, in alphabetical order (to ease maintenance)
+    apt-get update && apt-get install -y --no-install-recommends \
+        php-apcu \
+        php-imagick \
+        php-memcached \
+        php8.0-bcmath \
+        php8.0-cli \
+        php8.0-curl \
+        php8.0-gd \
+        php8.0-intl \
+        php8.0-ldap \
+        php8.0-mbstring \
+        php8.0-mysql \
+        php8.0-pgsql \
+        php8.0-sqlite3 \
+        php8.0-xml \
+        php8.0-zip && \
+\
+# Remove cache
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+########################################################################################################################
