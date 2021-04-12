@@ -1,4 +1,4 @@
-FROM ubuntu:18.04 AS base
+FROM ubuntu:20.04 AS base
 
 LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
 
@@ -53,8 +53,8 @@ RUN \
 # Add PPA for PHP
     echo '' >> /etc/apt/sources.list && \
     echo '# PPA for PHP' >> /etc/apt/sources.list && \
-    echo 'deb http://ppa.launchpad.net/ondrej/php/ubuntu bionic main' >> /etc/apt/sources.list && \
-    echo 'deb-src http://ppa.launchpad.net/ondrej/php/ubuntu bionic main' >> /etc/apt/sources.list && \
+    echo 'deb http://ppa.launchpad.net/ondrej/php/ubuntu focal main' >> /etc/apt/sources.list && \
+    echo 'deb-src http://ppa.launchpad.net/ondrej/php/ubuntu focal main' >> /etc/apt/sources.list && \
     echo '' >> /etc/apt/sources.list && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E5267A6C
 
@@ -68,9 +68,9 @@ RUN \
 \
 # All our dependencies, in alphabetical order (to ease maintenance)
     apt-get update && apt-get install -y --no-install-recommends \
-        php-apcu \
-        php-imagick \
-        php-memcached \
+        php8.0-apcu \
+        php8.0-imagick \
+        php8.0-memcached \
         php8.0-bcmath \
         php8.0-cli \
         php8.0-curl \

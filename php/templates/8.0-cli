@@ -7,9 +7,9 @@ RUN \
 \
 # All our dependencies, in alphabetical order (to ease maintenance)
     apt-get update && apt-get install -y --no-install-recommends \
-        php-apcu \
-        php-imagick \
-        php-memcached \
+        php8.0-apcu \
+        php8.0-imagick \
+        php8.0-memcached \
         php8.0-bcmath \
         php8.0-cli \
         php8.0-curl \
