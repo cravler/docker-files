@@ -1,7 +1,9 @@
 # Supported tags and respective `Dockerfile` links
 
-- 8.0-cli, 8-cli, cli, 8.0, 8, latest [(Dockerfile.8.0-cli)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.0-cli)
-- 8.0-fpm, 8-fpm, fpm [(Dockerfile.8.0-fpm)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.0-fpm)
+- 8.1-cli, 8-cli, cli, 8.1, 8, latest [(Dockerfile.8.1-cli)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.1-cli)
+- 8.1-fpm, 8-fpm, fpm [(Dockerfile.8.1-fpm)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.1-fpm)
+- 8.0-cli, 8.0 [(Dockerfile.8.0-cli)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.0-cli)
+- 8.0-fpm [(Dockerfile.8.0-fpm)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.0-fpm)
 - 7.4-cli, 7-cli, 7.4, 7 [(Dockerfile.7.4-cli)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.7.4-cli)
 - 7.4-fpm, 7-fpm [(Dockerfile.7.4-fpm)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.7.4-fpm)
 

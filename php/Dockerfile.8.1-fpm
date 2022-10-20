@@ -1,0 +1,35 @@
+FROM cravler/php:8.1-cli
+
+LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
+
+# Common environment variables
+ENV CONF_DIR_PHP_FPM /etc/php/8.1/fpm
+
+RUN \
+\
+# All our dependencies, in alphabetical order (to ease maintenance)
+    apt-get update && apt-get install -y --no-install-recommends \
+        php8.1-fpm && \
+\
+# Remove cache
+    apt-get clean && rm -rf /var/lib/apt/lists/* && \
+\
+# Configure php-fpm
+    mkdir -p /run/php && \
+    ln -s /usr/sbin/php-fpm8.1 /usr/sbin/php-fpm && \
+    ln -s /usr/sbin/php-fpm8.1 /usr/sbin/php8-fpm && \
+    ln -s /usr/sbin/php-fpm8.1 /usr/sbin/php8.1-fpm && \
+\
+# Find config files and edit
+    find "$CONF_DIR_PHP_FPM" -type f -exec sed -ri ' \
+        s|(error_log\s+=).*|\1 /proc/self/fd/2|g; \
+        s|\S*(daemonize\s+=).*|\1 no|g; \
+    ' '{}' ';'
+
+ADD php-fpm-env-import.sh /.cravler/php-fpm-env-import.sh
+ADD php-fpm-set-env.sh /.cravler/php-fpm-set-env.sh
+ADD php-fpm-config.sh /.cravler/php-fpm-config.sh
+ADD php-fpm-entrypoint.sh /.cravler/entrypoint.sh
+
+EXPOSE 9000
+CMD ["php8-fpm", "-R"]

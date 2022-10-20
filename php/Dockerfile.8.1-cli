@@ -1,0 +1,90 @@
+FROM ubuntu:20.04 AS base
+
+LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
+
+# Let the conatiner know that there is no tty
+ENV DEBIAN_FRONTEND noninteractive
+
+# Common environment variables
+ENV TZ UTC
+ENV COMPOSER_HOME /.composer
+ENV COMPOSER_ALLOW_SUPERUSER 1
+ENV PATH ${COMPOSER_HOME}/bin:${PATH}:${COMPOSER_HOME}/vendor/bin
+
+RUN \
+\
+# All our dependencies, in alphabetical order (to ease maintenance)
+    apt-get update && apt-get install -y --no-install-recommends \
+        ca-certificates \
+        curl \
+        git \
+        gnupg \
+        netcat \
+        unzip \
+        vim && \
+\
+# Remove cache
+    apt-get clean && rm -rf /var/lib/apt/lists/* && \
+\
+# Create default working directory
+    mkdir -p /var/www
+
+WORKDIR /var/www
+
+ADD sed.sh /.cravler/sed.sh
+ADD args2str.sh /.cravler/args2str.sh
+ADD dotenv.sh /.cravler/dotenv.sh
+ADD dotenv-export.sh /.cravler/dotenv-export.sh
+ADD php-set-config.sh /.cravler/php-set-config.sh
+ADD php-cli-config.sh /.cravler/php-cli-config.sh
+ADD php-cli-entrypoint.sh /.cravler/entrypoint.sh
+ADD composer.sh /usr/local/bin/composer
+
+ENTRYPOINT ["/.cravler/entrypoint.sh"]
+
+CMD ["php", "-a"]
+
+########################################################################################################################
+
+FROM base AS ppa
+
+RUN \
+\
+# Add PPA for PHP
+    echo '' >> /etc/apt/sources.list && \
+    echo '# PPA for PHP' >> /etc/apt/sources.list && \
+    echo 'deb http://ppa.launchpad.net/ondrej/php/ubuntu focal main' >> /etc/apt/sources.list && \
+    echo 'deb-src http://ppa.launchpad.net/ondrej/php/ubuntu focal main' >> /etc/apt/sources.list && \
+    echo '' >> /etc/apt/sources.list && \
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E5267A6C
+
+########################################################################################################################
+
+FROM ppa AS php8.1
+
+ENV CONF_DIR_PHP_CLI /etc/php/8.1/cli
+
+RUN \
+\
+# All our dependencies, in alphabetical order (to ease maintenance)
+    apt-get update && apt-get install -y --no-install-recommends \
+        php8.1-apcu \
+        php8.1-imagick \
+        php8.1-memcached \
+        php8.1-bcmath \
+        php8.1-cli \
+        php8.1-curl \
+        php8.1-gd \
+        php8.1-intl \
+        php8.1-ldap \
+        php8.1-mbstring \
+        php8.1-mysql \
+        php8.1-pgsql \
+        php8.1-sqlite3 \
+        php8.1-xml \
+        php8.1-zip && \
+\
+# Remove cache
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+########################################################################################################################

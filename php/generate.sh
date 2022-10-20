@@ -28,6 +28,7 @@ if [[ -z "$1" ]]; then
 
     $MY_PATH/generate.sh --repository=$REPOSITORY 7.4
     $MY_PATH/generate.sh --repository=$REPOSITORY 8.0
+    $MY_PATH/generate.sh --repository=$REPOSITORY 8.1
 else
     PHP_VERSION=$1
 
