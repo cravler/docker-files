@@ -1,6 +1,8 @@
 #!/bin/bash
 
-MY_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+WORKDIR="$(dirname $SCRIPT_DIR)"
+
 REPOSITORY=cravler/php
 PUSH_IMAGE=NO
 ADD_TAGS=NO
@@ -29,7 +31,7 @@ build_docker_image() {
     TAG=$1
     PULL=$2
     shift
-    docker build $PULL --no-cache --rm -f $MY_PATH/Dockerfile.$TAG -t $REPOSITORY:$TAG .
+    docker build $PULL --no-cache --rm -f $WORKDIR/Dockerfile.$TAG -t $REPOSITORY:$TAG "$WORKDIR"
     if [ "YES" = "$PUSH_IMAGE" ]; then
         docker push $REPOSITORY:$TAG
     fi
