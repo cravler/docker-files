@@ -24,8 +24,8 @@ if [[ -z "$1" ]]; then
     #$MY_PATH/generate.sh --repository=$REPOSITORY 7.0
     #$MY_PATH/generate.sh --repository=$REPOSITORY 7.1
     #$MY_PATH/generate.sh --repository=$REPOSITORY 7.2
+    #$MY_PATH/generate.sh --repository=$REPOSITORY 7.3
 
-    $MY_PATH/generate.sh --repository=$REPOSITORY 7.3
     $MY_PATH/generate.sh --repository=$REPOSITORY 7.4
     $MY_PATH/generate.sh --repository=$REPOSITORY 8.0
 else

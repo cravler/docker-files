@@ -51,9 +51,9 @@ build_docker_image() {
 #build_docker_image 7.1-fpm    ""
 #build_docker_image 7.2-cli    --pull    7.2
 #build_docker_image 7.2-fpm    ""
+#build_docker_image 7.3-cli    --pull    7.3
+#build_docker_image 7.3-fpm    ""
 
-build_docker_image 7.3-cli    --pull    7.3
-build_docker_image 7.3-fpm    ""
 build_docker_image 7.4-cli    --pull    7-cli 7.4 7
 build_docker_image 7.4-fpm    ""        7-fpm
 build_docker_image 8.0-cli    --pull    8-cli cli 8.0 8 latest
