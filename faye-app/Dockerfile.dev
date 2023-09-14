@@ -1,26 +1,28 @@
-FROM cravler/faye-app
+FROM cravler/faye-app:latest
 
 LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
 
 RUN \
 \
 # Install dependencies
-    apt-get update && apt-get install -y --no-install-recommends \
-        rsync && \
-\
-# Remove cache
-    apt-get clean && rm -rf /var/lib/apt/lists/* && \
+    apk add --update \
+        git \
+        make \
+        rsync \
+    && \
+    rm -rf /var/cache/apk/* && \
 \
 # Build Faye
-    git clone https://github.com/cravler/faye /faye && \
+    git clone https://github.com/faye/faye /faye && \
     cd /faye && \
-    git checkout dev && \
-    npm i && \
-    make && \
+    git checkout master && \
+    npm i --save-dev webpack@^4 webpack-cli@^4 && \
+    NODE_OPTIONS=--openssl-legacy-provider make && \
 \
-# Install Faye
+# Install
+    npm install -g https://github.com/cravler/faye-app && \
     cd /usr/local/lib/node_modules/faye-app && \
     rm -rf node_modules && \
     npm i -S /faye/build && \
     npm i && \
-    sed -i 's/"version": "0.*"/"version": "dev"/g' package.json
+    sed -i 's/"version": ".*"/"version": "dev"/g' package.json
