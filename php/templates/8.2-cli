@@ -1,0 +1,29 @@
+
+FROM ppa AS php8.2
+
+ENV CONF_DIR_PHP_CLI /etc/php/8.2/cli
+
+RUN \
+\
+# All our dependencies, in alphabetical order (to ease maintenance)
+    apt-get update && apt-get install -y --no-install-recommends \
+        php8.2-apcu \
+        php8.2-imagick \
+        php8.2-memcached \
+        php8.2-bcmath \
+        php8.2-cli \
+        php8.2-curl \
+        php8.2-gd \
+        php8.2-intl \
+        php8.2-ldap \
+        php8.2-mbstring \
+        php8.2-mysql \
+        php8.2-pgsql \
+        php8.2-sqlite3 \
+        php8.2-xml \
+        php8.2-zip && \
+\
+# Remove cache
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+########################################################################################################################

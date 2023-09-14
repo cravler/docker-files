@@ -27,10 +27,11 @@ if [[ -z "$1" ]]; then
     #$SCRIPT_DIR/generate.sh --repository=$REPOSITORY 7.1
     #$SCRIPT_DIR/generate.sh --repository=$REPOSITORY 7.2
     #$SCRIPT_DIR/generate.sh --repository=$REPOSITORY 7.3
+    #$SCRIPT_DIR/generate.sh --repository=$REPOSITORY 7.4
 
-    $SCRIPT_DIR/generate.sh --repository=$REPOSITORY 7.4
     $SCRIPT_DIR/generate.sh --repository=$REPOSITORY 8.0
     $SCRIPT_DIR/generate.sh --repository=$REPOSITORY 8.1
+    $SCRIPT_DIR/generate.sh --repository=$REPOSITORY 8.2
 else
     PHP_VERSION=$1
 
@@ -46,5 +47,5 @@ else
 
     render_template $WORKDIR/templates/fpm > $WORKDIR/Dockerfile.$PHP_VERSION-fpm
 
-    echo "Generated: $REPOSITORY:$PHP_VERSION"
+    echo "GENERATED: $REPOSITORY:$PHP_VERSION"
 fi

@@ -8,7 +8,15 @@ if [ "YES" = "${DOCKER_PUSH}" ]; then
     PUSH_IMAGE="--push"
 fi
 
-echo "Building: ${DOCKER_REPO}"
+echo ""
 
-./scripts/generate.sh --repository=${DOCKER_REPO}
-./scripts/docker-build.sh --repository=${DOCKER_REPO} --add-tags "${PUSH_IMAGE}"
+./scripts/generate.sh \
+    --repository=${DOCKER_REPO}
+
+echo ""
+
+./scripts/docker-build.sh \
+    "${PUSH_IMAGE}" \
+    --add-tags \
+    --repository=${DOCKER_REPO} \
+    --platform=linux/amd64,linux/arm64

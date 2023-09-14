@@ -23,9 +23,9 @@ docker run \
     --privileged \
     --name ${DIND_NAME} \
     -v ${HOME}/.docker/config.json:/root/.docker/config.json \
-    -v ${WORKDIR}:/mnt/php \
-    -w /mnt/php \
-    docker:stable-dind
+    -v ${WORKDIR}:/mnt/repo \
+    -w /mnt/repo \
+    docker:dind
 
 docker exec \
     -t \
@@ -34,9 +34,14 @@ docker exec \
 
 docker exec \
     -t \
+    ${DIND_NAME} \
+    sh -c "while ( ! docker ps -q &> /dev/null ); do echo '.'; sleep 1; done"
+
+docker exec \
+    -t \
     -e DOCKER_PUSH=${PUSH_IMAGE} \
     ${DIND_NAME} \
-    sh -c "/mnt/php/hooks/build"
+    sh -c "/mnt/repo/hooks/build"
 
 docker exec \
     -t \
