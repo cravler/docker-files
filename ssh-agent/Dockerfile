@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.18
 
 LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
 

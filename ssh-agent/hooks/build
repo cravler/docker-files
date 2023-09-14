@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+
+DOCKER_REPO=${DOCKER_REPO:-cravler/ssh-agent}
+DOCKER_PUSH=${DOCKER_PUSH:-YES}
+
+PUSH_IMAGE=""
+if [ "YES" = "${DOCKER_PUSH}" ]; then
+    PUSH_IMAGE="--push"
+fi
+
+./scripts/docker-build.sh \
+    "${PUSH_IMAGE}" \
+    --add-tags \
+    --repository=${DOCKER_REPO} \
+    --platform=linux/amd64,linux/arm64 \
+    --build=`date +%Y%m%d`
