@@ -6,11 +6,11 @@
 - 8.2-fpm [(Dockerfile.8.2-fpm)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.2-fpm)
 - 8.1-cli, 8.1 [(Dockerfile.8.1-cli)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.1-cli)
 - 8.1-fpm [(Dockerfile.8.1-fpm)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.1-fpm)
-- 8.0-cli, 8.0 [(Dockerfile.8.0-cli)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.0-cli)
-- 8.0-fpm [(Dockerfile.8.0-fpm)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.0-fpm)
 
 # End of life
 
+- 8.0-cli, 8.0 [(Dockerfile.8.0-cli)](https://github.com/cravler/docker-files/tree/master/php/archive/Dockerfile.8.0-cli)
+- 8.0-fpm [(Dockerfile.8.0-fpm)](https://github.com/cravler/docker-files/tree/master/php/archive/Dockerfile.8.0-fpm)
 - 7.4-cli, 7-cli, 7.4, 7 [(Dockerfile.7.4-cli)](https://github.com/cravler/docker-files/tree/master/php/archive/Dockerfile.7.4-cli)
 - 7.4-fpm, 7-fpm [(Dockerfile.7.4-fpm)](https://github.com/cravler/docker-files/tree/master/php/archive/Dockerfile.7.4-fpm)
 - 7.3-cli, 7.3 [(Dockerfile.7.3-cli)](https://github.com/cravler/docker-files/tree/master/php/archive/Dockerfile.7.3-cli)

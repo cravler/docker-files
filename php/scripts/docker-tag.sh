@@ -49,8 +49,8 @@ add_docker_tag() {
 #add_docker_tag 7.3-cli 7.3
 #add_docker_tag 7.4-cli 7-cli 7.4 7
 #add_docker_tag 7.4-fpm 7-fpm
+#add_docker_tag 8.0-cli 8.0
 
-add_docker_tag 8.0-cli 8.0
 add_docker_tag 8.1-cli 8.1
 add_docker_tag 8.2-cli 8.2
 add_docker_tag 8.3-cli 8-cli cli 8.3 8 latest
