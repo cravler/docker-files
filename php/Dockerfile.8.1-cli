@@ -38,6 +38,7 @@ ADD dotenv-export.sh /.cravler/dotenv-export.sh
 ADD php-set-config.sh /.cravler/php-set-config.sh
 ADD php-cli-config.sh /.cravler/php-cli-config.sh
 ADD php-cli-entrypoint.sh /.cravler/entrypoint.sh
+ADD php-cs-fixer.sh /.cravler/php-cs-fixer.sh
 ADD composer.sh /usr/local/bin/composer
 
 ENTRYPOINT ["/.cravler/entrypoint.sh"]

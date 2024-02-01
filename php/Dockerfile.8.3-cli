@@ -46,3 +46,46 @@ ENTRYPOINT ["/.cravler/entrypoint.sh"]
 CMD ["php", "-a"]
 
 ########################################################################################################################
+
+FROM base AS ppa
+
+RUN \
+\
+# Add PPA for PHP
+    echo '' >> /etc/apt/sources.list && \
+    echo '# PPA for PHP' >> /etc/apt/sources.list && \
+    echo 'deb http://ppa.launchpad.net/ondrej/php/ubuntu focal main' >> /etc/apt/sources.list && \
+    echo 'deb-src http://ppa.launchpad.net/ondrej/php/ubuntu focal main' >> /etc/apt/sources.list && \
+    echo '' >> /etc/apt/sources.list && \
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E5267A6C
+
+########################################################################################################################
+
+FROM ppa AS php8.3
+
+ENV CONF_DIR_PHP_CLI /etc/php/8.3/cli
+
+RUN \
+\
+# All our dependencies, in alphabetical order (to ease maintenance)
+    apt-get update && apt-get install -y --no-install-recommends \
+        php8.3-apcu \
+        php8.3-imagick \
+        php8.3-memcached \
+        php8.3-bcmath \
+        php8.3-cli \
+        php8.3-curl \
+        php8.3-gd \
+        php8.3-intl \
+        php8.3-ldap \
+        php8.3-mbstring \
+        php8.3-mysql \
+        php8.3-pgsql \
+        php8.3-sqlite3 \
+        php8.3-xml \
+        php8.3-zip && \
+\
+# Remove cache
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+########################################################################################################################
