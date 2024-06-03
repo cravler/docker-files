@@ -1,4 +1,6 @@
-FROM alpine:3.18
+ARG ALPINE_VERSION=3.20
+
+FROM alpine:${ALPINE_VERSION}
 
 LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
 
@@ -11,6 +13,7 @@ RUN \
     apk add --update openssh && \
     rm -rf /var/cache/apk/*
 
+COPY askpass.sh /ssh-askpass.sh
 COPY run.sh /ssh-agent.sh
 
 VOLUME ["$SSH_DIR", "$SOCKET_DIR"]
