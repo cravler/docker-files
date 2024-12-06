@@ -1,4 +1,4 @@
-FROM ubuntu:20.04 AS base
+FROM ubuntu:24.04 AS base
 
 LABEL maintainer="Sergei Vizel <http://github.com/cravler>"
 
@@ -19,7 +19,7 @@ RUN \
         curl \
         git \
         gnupg \
-        netcat \
+        netcat-openbsd \
         unzip \
         vim && \
 \
@@ -54,8 +54,8 @@ RUN \
 # Add PPA for PHP
     echo '' >> /etc/apt/sources.list && \
     echo '# PPA for PHP' >> /etc/apt/sources.list && \
-    echo 'deb http://ppa.launchpad.net/ondrej/php/ubuntu focal main' >> /etc/apt/sources.list && \
-    echo 'deb-src http://ppa.launchpad.net/ondrej/php/ubuntu focal main' >> /etc/apt/sources.list && \
+    echo 'deb http://ppa.launchpad.net/ondrej/php/ubuntu noble main' >> /etc/apt/sources.list && \
+    echo 'deb-src http://ppa.launchpad.net/ondrej/php/ubuntu noble main' >> /etc/apt/sources.list && \
     echo '' >> /etc/apt/sources.list && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E5267A6C
 

@@ -1,4 +1,4 @@
-FROM ubuntu:20.04 AS base
+FROM ubuntu:24.04 AS base
 
 LABEL maintainer="Sergei Vizel <http://github.com/cravler>"
 
@@ -19,7 +19,7 @@ RUN \
         curl \
         git \
         gnupg \
-        netcat \
+        netcat-openbsd \
         unzip \
         vim && \
 \
