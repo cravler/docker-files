@@ -1,7 +1,7 @@
 
 FROM ppa AS php8.2
 
-ENV CONF_DIR_PHP_CLI /etc/php/8.2/cli
+ENV CONF_DIR_PHP_CLI=/etc/php/8.2/cli
 
 RUN \
 \

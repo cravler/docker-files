@@ -1,8 +1,8 @@
 FROM cravler/php:7.4-fpm
 
-LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
+LABEL maintainer="Sergei Vizel <http://github.com/cravler>"
 
-ENV PHP_ALIAS PHP7
+ENV PHP_ALIAS=PHP7
 
 ADD entrypoint.sh /entrypoint.sh
 

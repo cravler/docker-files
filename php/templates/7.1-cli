@@ -1,7 +1,7 @@
 
 FROM ppa AS php7.1
 
-ENV CONF_DIR_PHP_CLI /etc/php/7.1/cli
+ENV CONF_DIR_PHP_CLI=/etc/php/7.1/cli
 
 RUN \
 \

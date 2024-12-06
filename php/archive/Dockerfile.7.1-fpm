@@ -1,9 +1,9 @@
 FROM cravler/php:7.1-cli
 
-LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
+LABEL maintainer="Sergei Vizel <http://github.com/cravler>"
 
 # Common environment variables
-ENV CONF_DIR_PHP_FPM /etc/php/7.1/fpm
+ENV CONF_DIR_PHP_FPM=/etc/php/7.1/fpm
 
 RUN \
 \

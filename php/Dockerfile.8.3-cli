@@ -1,15 +1,15 @@
 FROM ubuntu:20.04 AS base
 
-LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
+LABEL maintainer="Sergei Vizel <http://github.com/cravler>"
 
 # Let the conatiner know that there is no tty
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Common environment variables
-ENV TZ UTC
-ENV COMPOSER_HOME /.composer
-ENV COMPOSER_ALLOW_SUPERUSER 1
-ENV PATH ${COMPOSER_HOME}/bin:${PATH}:${COMPOSER_HOME}/vendor/bin
+ENV TZ=UTC
+ENV COMPOSER_HOME=/.composer
+ENV COMPOSER_ALLOW_SUPERUSER=1
+ENV PATH=${COMPOSER_HOME}/bin:${PATH}:${COMPOSER_HOME}/vendor/bin
 
 RUN \
 \
@@ -63,7 +63,7 @@ RUN \
 
 FROM ppa AS php8.3
 
-ENV CONF_DIR_PHP_CLI /etc/php/8.3/cli
+ENV CONF_DIR_PHP_CLI=/etc/php/8.3/cli
 
 RUN \
 \

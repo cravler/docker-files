@@ -1,9 +1,9 @@
 FROM ${REPOSITORY}:${PHP_VERSION}-cli
 
-LABEL maintainer \"Sergei Vizel <http://github.com/cravler>\"
+LABEL maintainer=\"Sergei Vizel <http://github.com/cravler>\"
 
 # Common environment variables
-ENV CONF_DIR_PHP_FPM /etc/php/${PHP_VERSION}/fpm
+ENV CONF_DIR_PHP_FPM=/etc/php/${PHP_VERSION}/fpm
 
 RUN \\
 \\
