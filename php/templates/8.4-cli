@@ -1,0 +1,29 @@
+
+FROM ppa AS php8.4
+
+ENV CONF_DIR_PHP_CLI=/etc/php/8.4/cli
+
+RUN \
+\
+# All our dependencies, in alphabetical order (to ease maintenance)
+    apt-get update && apt-get install -y --no-install-recommends \
+        php8.4-apcu \
+        php8.4-imagick \
+        php8.4-memcached \
+        php8.4-bcmath \
+        php8.4-cli \
+        php8.4-curl \
+        php8.4-gd \
+        php8.4-intl \
+        php8.4-ldap \
+        php8.4-mbstring \
+        php8.4-mysql \
+        php8.4-pgsql \
+        php8.4-sqlite3 \
+        php8.4-xml \
+        php8.4-zip && \
+\
+# Remove cache
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+########################################################################################################################

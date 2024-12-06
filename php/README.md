@@ -1,7 +1,9 @@
 # Supported tags and respective `Dockerfile` links
 
-- 8.3-cli, 8-cli, cli, 8.3, 8, latest [(Dockerfile.8.3-cli)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.3-cli)
-- 8.3-fpm, 8-fpm, fpm [(Dockerfile.8.3-fpm)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.3-fpm)
+- 8.4-cli, 8-cli, cli, 8.4, 8, latest [(Dockerfile.8.4-cli)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.4-cli)
+- 8.4-fpm, 8-fpm, fpm [(Dockerfile.8.4-fpm)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.4-fpm)
+- 8.3-cli, 8.3 [(Dockerfile.8.3-cli)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.3-cli)
+- 8.3-fpm [(Dockerfile.8.3-fpm)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.3-fpm)
 - 8.2-cli, 8.2 [(Dockerfile.8.2-cli)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.2-cli)
 - 8.2-fpm [(Dockerfile.8.2-fpm)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.2-fpm)
 - 8.1-cli, 8.1 [(Dockerfile.8.1-cli)](https://github.com/cravler/docker-files/tree/master/php/Dockerfile.8.1-cli)
@@ -31,7 +33,7 @@
 or
 
     docker run -it --rm cravler/php composer
-    
+
 # How to use FPM image
 
     docker run --name php-fpm --link nginx:nginx -d cravler/php:fpm

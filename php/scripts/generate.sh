@@ -33,6 +33,7 @@ if [[ -z "$1" ]]; then
     $SCRIPT_DIR/generate.sh --repository=$REPOSITORY 8.1
     $SCRIPT_DIR/generate.sh --repository=$REPOSITORY 8.2
     $SCRIPT_DIR/generate.sh --repository=$REPOSITORY 8.3
+    $SCRIPT_DIR/generate.sh --repository=$REPOSITORY 8.4
 else
     PHP_VERSION=$1
 
