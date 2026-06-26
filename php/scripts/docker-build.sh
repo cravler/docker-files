@@ -121,9 +121,9 @@ echo ""
 #build_docker_image 7.4-fpm    ""        7-fpm
 #build_docker_image 8.0-cli    --pull    8.0
 #build_docker_image 8.0-fpm    ""
+#build_docker_image 8.1-cli    --pull    8.1
+#build_docker_image 8.1-fpm    ""
 
-build_docker_image 8.1-cli    --pull    8.1
-build_docker_image 8.1-fpm    ""
 build_docker_image 8.2-cli    --pull    8.2
 build_docker_image 8.2-fpm    ""
 build_docker_image 8.3-cli    --pull    8.3

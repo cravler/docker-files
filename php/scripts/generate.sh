@@ -29,8 +29,8 @@ if [[ -z "$1" ]]; then
     #$SCRIPT_DIR/generate.sh --repository=$REPOSITORY 7.3
     #$SCRIPT_DIR/generate.sh --repository=$REPOSITORY 7.4
     #$SCRIPT_DIR/generate.sh --repository=$REPOSITORY 8.0
+    #$SCRIPT_DIR/generate.sh --repository=$REPOSITORY 8.1
 
-    $SCRIPT_DIR/generate.sh --repository=$REPOSITORY 8.1
     $SCRIPT_DIR/generate.sh --repository=$REPOSITORY 8.2
     $SCRIPT_DIR/generate.sh --repository=$REPOSITORY 8.3
     $SCRIPT_DIR/generate.sh --repository=$REPOSITORY 8.4
