@@ -1,12 +1,12 @@
 ARG VERSION=latest
 ARG BUILD=dev
 
-FROM node:18-alpine
+FROM node:24-alpine
 
 ARG VERSION
 ARG BUILD
 
-LABEL maintainer "Sergei Vizel <http://github.com/cravler>"
+LABEL maintainer="Sergei Vizel <http://github.com/cravler>"
 
 RUN \
 # Install Faye-App
